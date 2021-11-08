@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MicroserviceBase.Domain.Commands.Customers
+﻿namespace MicroserviceBase.Domain.Commands.Customers
 {
     public class UpdateCustomerCommand
     {

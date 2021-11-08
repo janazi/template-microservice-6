@@ -1,5 +1,4 @@
-﻿using System;
-using Jnz.RedisRepository.Interfaces;
+﻿using Jnz.RedisRepository.Interfaces;
 
 namespace MicroserviceBase.Domain.Entities;
 

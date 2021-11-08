@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MassTransit;
 using MediatR;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Entities;
@@ -18,12 +19,12 @@ namespace MicroserviceBase.Controllers.v1
     {
         private readonly IMediator _mediator;
         private readonly ILogger<CustomersController> _logger;
-        private readonly IPublisher _publisher;
+        private readonly IPublishEndpoint _publisher;
         private readonly IConfiguration _configuration;
 
         public CustomersController(IMediator mediator, 
             ILogger<CustomersController> logger, 
-            IPublisher publisher,
+            IPublishEndpoint publisher,
                 IConfiguration configuration)
         {
             _mediator = mediator;
