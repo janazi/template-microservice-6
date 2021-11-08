@@ -1,7 +1,7 @@
 ﻿using MicroserviceBase.Domain.Entities;
 using MicroserviceBase.Domain.Queries;
 
-namespace MicroserviceBase.Infrastructure.Data.Queries
+namespace MicroserviceBase.Infra.Data.Queries
 {
     public class CustomerQuery : ICustomerQuery
     {

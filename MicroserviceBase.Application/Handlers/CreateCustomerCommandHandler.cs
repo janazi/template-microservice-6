@@ -1,6 +1,5 @@
 ﻿using Jnz.RedisRepository.Interfaces;
 using MediatR;
-using MicroserviceBase.Controllers.V1;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Entities;
 using Microsoft.Extensions.Logging;

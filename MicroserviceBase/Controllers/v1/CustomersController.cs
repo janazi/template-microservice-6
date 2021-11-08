@@ -5,7 +5,7 @@ using MicroserviceBase.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
-namespace MicroserviceBase.Controllers.V1
+namespace MicroserviceBase.Controllers.v1
 {
     [ApiController]
     [Route("api/[controller]")]

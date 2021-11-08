@@ -1,6 +1,6 @@
 ﻿using Jnz.RedisRepository.Interfaces;
 
-namespace MicroserviceBase.Controllers.V1;
+namespace MicroserviceBase.Domain.Entities;
 
 public class NaturalPerson : IRedisCacheable
 {

@@ -1,10 +1,10 @@
-﻿using MicroserviceBase.Domain.Commands.Customers;
+﻿using System.Net;
+using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Refit;
-using System.Net;
 
-namespace MicroserviceBase.Infrastructure.Data.HttpClients
+namespace MicroserviceBase.Infra.Data.HttpClients
 {
     public interface ICustomerApi
     {
