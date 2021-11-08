@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jnz.CorrelationHeaderMiddleware" Version="1.0.1" />
+    <PackageReference Include="Jnz.RedisRepository" Version="1.0.6" />
+    <PackageReference Include="MassTransit" Version="7.2.4" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0-rc.2.21480.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MicroserviceBase.Domain\MicroserviceBase.Domain.csproj" />
+    <ProjectReference Include="..\MicroserviceBase.Infra.Mvc\MicroserviceBase.Infra.Mvc.csproj" />
+  </ItemGroup>
+
+</Project>
