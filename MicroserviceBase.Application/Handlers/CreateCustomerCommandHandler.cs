@@ -1,4 +1,7 @@
-﻿using Jnz.RedisRepository.Interfaces;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Jnz.RedisRepository.Interfaces;
 using MediatR;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Entities;

@@ -4,7 +4,7 @@
     {
         private static string _serviceName;
         private static string _serviceId;
-        private static string _version;
+        private static readonly string _version;
         private const string ApplicationNameEnvironment = "ApplicationName";
 
         public static void Configure(IConfiguration configuration, string _version)

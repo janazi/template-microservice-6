@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 using MicroserviceBase.Domain.Entities;
 
 namespace MicroserviceBase.Domain.Commands.Customers

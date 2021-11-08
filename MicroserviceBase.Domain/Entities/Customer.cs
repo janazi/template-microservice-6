@@ -1,4 +1,5 @@
-﻿using Flunt.Notifications;
+﻿using System;
+using Flunt.Notifications;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Contracts;
 

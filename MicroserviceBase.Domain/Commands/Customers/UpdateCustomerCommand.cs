@@ -1,4 +1,6 @@
-﻿namespace MicroserviceBase.Domain.Commands.Customers
+﻿using System;
+
+namespace MicroserviceBase.Domain.Commands.Customers
 {
     public class UpdateCustomerCommand
     {
@@ -6,11 +8,11 @@
         public DateTime DataNascimento { get; init; }
         public string CPF { get; init; }
 
-        public UpdateCustomerCommand(string nome, DateTime dataNascimento, string cPF)
+        public UpdateCustomerCommand(string nome, DateTime dataNascimento, string cpf)
         {
             Nome = nome;
             DataNascimento = dataNascimento;
-            CPF = cPF;
+            CPF = cpf;
         }
     }
 }

@@ -12,6 +12,7 @@ using Serilog.Core.Enrichers;
 using Serilog.Enrichers.AspNetCore.HttpContext;
 using System.IO.Compression;
 using System.Net;
+using Jnz.RedisRepository;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,8 @@ builder.Services.AddMasstransitCorrelationId();
 
 builder.Services.AddLogging();
 
+var redisOptions = builder.Configuration.GetSection("RedisOptions").Get<RedisOptions>();
+
 builder.Services.AddRedisRepository(builder.Configuration);
 
 builder.Services.AddMediatR(AppDomain.CurrentDomain.Load("MicroserviceBase.Application"));
@@ -48,7 +51,7 @@ builder.WebHost.ConfigureKestrel((ctx, opt) =>
     opt.AddServerHeader = false;
     opt.Listen(IPAddress.Any, 5001, listenOptions =>
     {
-        listenOptions.Protocols = HttpProtocols.Http1AndHttp2AndHttp3;
+        listenOptions.Protocols = HttpProtocols.Http1AndHttp2;
         listenOptions.UseHttps();
     });
 });
