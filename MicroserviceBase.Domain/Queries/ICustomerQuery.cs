@@ -1,5 +1,4 @@
 ﻿using MicroserviceBase.Domain.Entities;
-using System.Threading.Tasks;
 
 namespace MicroserviceBase.Domain.Queries;
 

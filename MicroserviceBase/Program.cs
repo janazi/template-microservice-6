@@ -1,17 +1,18 @@
+using Jnz.RedisRepository.Extensions;
+using Jnz.RequestHeaderCorrelationId;
+using MasstransitCorrelationId;
 using MediatR;
 using MicroserviceBase;
+using MicroserviceBase.Infra.Mvc.HealChecks;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Newtonsoft.Json;
 using Serilog;
-using System.IO.Compression;
-using System.Net;
-using Jnz.RedisRepository.Extensions;
-using Jnz.RequestHeaderCorrelationId;
-using MasstransitCorrelationId;
-using MicroserviceBase.Infra.Mvc.HealChecks;
 using Serilog.Core.Enrichers;
 using Serilog.Enrichers.AspNetCore.HttpContext;
+using System.IO.Compression;
+using System.Net;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSerilog();
@@ -55,7 +56,7 @@ builder.WebHost.ConfigureKestrel((ctx, opt) =>
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new() { Title = "MicroserviceBase", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroserviceBase", Version = "v1" });
 });
 
 JsonConvert.DefaultSettings = () => new JsonSerializerSettings

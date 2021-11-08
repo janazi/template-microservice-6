@@ -6,7 +6,7 @@ public class NaturalPerson : IRedisCacheable
 {
     public NaturalPerson()
     {
-        
+
     }
     public NaturalPerson(string identifierNumber, string fullname, DateTime birthday, char gender)
     {

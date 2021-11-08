@@ -1,7 +1,6 @@
 ﻿using Polly;
 using Polly.CircuitBreaker;
 using Polly.Retry;
-using System;
 
 namespace MicroserviceBase.Domain.Policies;
 

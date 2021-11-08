@@ -1,6 +1,5 @@
 ﻿using Flunt.Validations;
 using MicroserviceBase.Domain.Entities;
-using System;
 
 namespace MicroserviceBase.Domain.Contracts;
 

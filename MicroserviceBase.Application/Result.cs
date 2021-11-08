@@ -1,5 +1,4 @@
 ﻿using Flunt.Notifications;
-using System.Collections.Generic;
 
 namespace MicroserviceBase.Application
 {

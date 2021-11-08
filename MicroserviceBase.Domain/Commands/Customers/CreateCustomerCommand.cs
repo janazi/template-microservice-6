@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using MicroserviceBase.Domain.Entities;
-using System;
 
 namespace MicroserviceBase.Domain.Commands.Customers
 {

@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace MicroserviceBase
+﻿namespace MicroserviceBase
 {
     public static class ApplicationInfo
     {

@@ -1,7 +1,6 @@
 ﻿using MassTransit;
 using MicroserviceBase.Domain.Events;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 
 namespace MicroserviceBase.Application.Consumers;
 

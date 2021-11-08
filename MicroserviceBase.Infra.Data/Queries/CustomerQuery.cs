@@ -1,7 +1,5 @@
 ﻿using MicroserviceBase.Domain.Entities;
 using MicroserviceBase.Domain.Queries;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace MicroserviceBase.Infrastructure.Data.Queries
 {

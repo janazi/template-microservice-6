@@ -1,7 +1,6 @@
 ﻿using Flunt.Notifications;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Contracts;
-using System;
 
 namespace MicroserviceBase.Domain.Entities;
 
