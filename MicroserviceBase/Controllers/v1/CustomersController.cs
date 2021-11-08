@@ -2,6 +2,7 @@
 using MediatR;
 using MicroserviceBase.Domain.Commands.Customers;
 using MicroserviceBase.Domain.Entities;
+using MicroserviceBase.Domain.Events;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
@@ -17,12 +18,17 @@ namespace MicroserviceBase.Controllers.v1
     {
         private readonly IMediator _mediator;
         private readonly ILogger<CustomersController> _logger;
+        private readonly IPublisher _publisher;
         private readonly IConfiguration _configuration;
 
-        public CustomersController(IMediator mediator, ILogger<CustomersController> logger, IConfiguration configuration)
+        public CustomersController(IMediator mediator, 
+            ILogger<CustomersController> logger, 
+            IPublisher publisher,
+                IConfiguration configuration)
         {
             _mediator = mediator;
             _logger = logger;
+            _publisher = publisher;
             _configuration = configuration;
         }
 
@@ -50,11 +56,12 @@ namespace MicroserviceBase.Controllers.v1
         public async Task<IActionResult> Post([FromBody] CreateCustomerCommand command)
         {
             _logger.LogInformation("teste");
-            var result = await _mediator.Send(command);
-            if (result.IsValid is false)
-                return BadRequest(result.Notifications);
+            var customer = await _mediator.Send(command);
+            if (customer.IsValid is false)
+                return BadRequest(customer.Notifications);
 
-            return CreatedAtAction(nameof(Post), result);
+            await _publisher.Publish(new CustomerCreatedEvent(customer.Nome));
+            return CreatedAtAction(nameof(Post), customer);
         }
 
         [HttpGet]

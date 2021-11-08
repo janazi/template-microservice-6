@@ -12,13 +12,12 @@ using Serilog.Core.Enrichers;
 using Serilog.Enrichers.AspNetCore.HttpContext;
 using System.IO.Compression;
 using System.Net;
-using Jnz.RedisRepository;
 using Microsoft.OpenApi.Models;
+using MassTransit;
+using MicroserviceBase.Application.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseSerilog();
-
-var rabbitConfig = builder.Configuration.GetSection("RabbitConfigs").Get<RabbitMQConfiguration>();
 
 // Add services to the container.
 
@@ -31,8 +30,6 @@ builder.Services.PropagateCorrelationIdHeader();
 builder.Services.AddMasstransitCorrelationId();
 
 builder.Services.AddLogging();
-
-var redisOptions = builder.Configuration.GetSection("RedisOptions").Get<RedisOptions>();
 
 builder.Services.AddRedisRepository(builder.Configuration);
 
@@ -61,6 +58,24 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MicroserviceBase", Version = "v1" });
 });
+
+
+builder.Services.AddMassTransit(opt =>
+{
+    var rabbitConfig = builder.Configuration.GetSection("RabbitConfig").Get<RabbitMQConfiguration>();
+    opt.AddConsumer(typeof(CustomerCreatedConsumer), typeof(CustomerCreatedConsumerDefinition));
+    opt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+    {
+        cfg.Host(rabbitConfig.Host, rabbitConfig.VirtualHost, auth =>
+        {
+            auth.Username(rabbitConfig.UserName);
+            auth.Password(rabbitConfig.Password);
+        });
+
+        cfg.ConfigureEndpoints(provider);
+    }));
+});
+builder.Services.AddMassTransitHostedService(true);
 
 JsonConvert.DefaultSettings = () => new JsonSerializerSettings
 {

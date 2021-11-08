@@ -4,5 +4,11 @@ namespace MicroserviceBase.Domain.Events;
 
 public class CustomerCreatedEvent : INotification
 {
-    public string Description { get; set; }
+    public string Nome { get; }
+
+
+    public CustomerCreatedEvent(string nome)
+    {
+        Nome = nome;
+    }
 }

@@ -17,6 +17,9 @@
     </PackageReference>
     <PackageReference Include="Jnz.Masstransit.CorrelationIdFilter" Version="1.0.0.2" />
     <PackageReference Include="Jnz.RedisRepository" Version="1.0.6" />
+    <PackageReference Include="MassTransit.AspNetCore" Version="7.2.4" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.2.4" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.2.4" />
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="MySql.Data" Version="8.0.27" />
