@@ -56,7 +56,6 @@ namespace MicroserviceBase.Controllers.v1
         [ProducesResponseType(typeof(Customer), StatusCodes.Status201Created)]
         public async Task<IActionResult> Post([FromBody] CreateCustomerCommand command)
         {
-            _logger.LogInformation("teste");
             var customer = await _mediator.Send(command);
             if (customer.IsValid is false)
                 return BadRequest(customer.Notifications);

@@ -21,8 +21,6 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
     }
     public async Task<Customer> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogDebug("Entering Create Customer Handler");
-
         var naturalPerson = new NaturalPerson("1234", "Marcelo Janazi", new DateTime(1980, 10, 22), 'M');
 
         await _redisRepository.SetAsync(naturalPerson);

@@ -64,7 +64,8 @@ builder.Services.AddMassTransit(opt =>
 {
     var rabbitConfig = builder.Configuration.GetSection("RabbitConfig").Get<RabbitMQConfiguration>();
     opt.AddConsumer(typeof(CustomerCreatedConsumer), typeof(CustomerCreatedConsumerDefinition));
-    opt.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(cfg =>
+
+    opt.UsingRabbitMq((provider, cfg) =>
     {
         cfg.Host(rabbitConfig.Host, rabbitConfig.VirtualHost, auth =>
         {
@@ -73,7 +74,7 @@ builder.Services.AddMassTransit(opt =>
         });
 
         cfg.ConfigureEndpoints(provider);
-    }));
+    });
 });
 builder.Services.AddMassTransitHostedService(true);
 

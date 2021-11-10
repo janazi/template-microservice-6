@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace MicroserviceBase.Domain.Events;
 
-namespace MicroserviceBase.Domain.Events;
-
-public class CustomerCreatedEvent : INotification
+public class CustomerCreatedEvent
 {
     public string Nome { get; }
 

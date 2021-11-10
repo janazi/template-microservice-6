@@ -15,8 +15,8 @@ public class CustomerCreatedConsumer : IConsumer<CustomerCreatedEvent>
 
     public async Task Consume(ConsumeContext<CustomerCreatedEvent> context)
     {
-        _logger.LogDebug(">>>>>>");
+        _logger.LogInformation(">>>>>>");
         _logger.LogDebug(context.Message.Nome);
         await Task.CompletedTask;
-    }
+     }
 }
